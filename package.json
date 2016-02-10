@@ -1,5 +1,5 @@
 {
-  "name": "glup-patternguide",
+  "name": "gulp-patternguide",
   "description": "Extend your gulp process and generate a living styleguide from your Jinja2 or Twig templates.",
   "version": "0.0.1",
   "main": "./index.js",

@@ -1,0 +1,12 @@
+div(class="sg-header", ng-class="{'is-visible': isNavigationDisplayed}", ng-cloak)
+
+    div(class="sg-nav-toggle")
+        span(ng-click="displayNavigation()",
+        class="sg-nav-toggle-link") Menu
+
+    div(class="sg-nav-container")
+
+        div(class="sg-nav")
+            ol(class="sg-nav",
+                ng-include="'./templates/navBarItem.html'",
+                onload="children=patternStructure.children")

@@ -1,0 +1,12 @@
+li(ng-repeat="item in children")
+
+    span(ng-click="updatePatterns(item)",
+        class="sg-header-link",
+        ng-class="{'is-selected': isSelected(item), 'sg-acc-handle':  item.children.length > 0}")
+        | {{item.title}}
+
+    ol(class="sg-acc-panel",
+       ng-class="{'is-active': isActive(item) && isNavigationDisplayed}",
+       ng-show="item.children.length > 0",
+       ng-include="'./templates/navBarItem.html'",
+       onload="children=item.children")

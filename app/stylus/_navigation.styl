@@ -1,0 +1,191 @@
+.sg-header
+  background: #222
+  color: #FFF
+  font-family: "Arial", sans-serif
+  left: 0
+  font-size: 12px
+  position: fixed
+  text-transform: uppercase
+  top: 0
+  width: 100%
+  z-index: 2
+
+  &.is-visible
+    background: #333
+
+    @media (min-width: 640px)
+      background: #222
+
+  *
+    box-sizing: border-box
+
+  ul,
+  ol
+    background: #222
+    padding: 0
+    margin: 0
+
+  li
+    padding: 0
+    list-style: none
+
+    & + li
+      border-top: 1px solid rgba(255, 255, 255, 0.05)
+
+    ul,
+    ol
+      z-index: 2
+
+.sg-header-link
+  color: gray
+  text-decoration: none
+  display: block
+  line-height: 1
+  padding: 1em
+  transition: background 0.15s ease-out
+  transition: color 0.15s ease-out
+
+  &:hover
+  &:focus
+  &.is-selected
+    color: white
+    background: rgba(255, 255, 255, 0.05)
+
+.sg-nav-toggle
+  display: inline-block
+  padding: 0.9em 1em
+  border-bottom: 1px solid rgba(0, 0, 0, 0)
+  position: relative
+  text-transform: uppercase
+  z-index: 2
+
+  @media (min-width: 640px)
+    display: none
+
+
+.sg-nav-toggle-link
+  display: inline-block
+  padding-right: 0.2em
+  cursor: pointer
+  font-weight: bold
+
+.sg-nav
+  z-index: 1
+  margin: 0
+  padding: 0
+  list-style: none
+  display: none
+  height: 36px
+
+  .is-visible &
+    display: block
+
+  @media (min-width: 640px)
+    display: block
+
+  li
+  span
+    background: #222
+
+  & > li
+    cursor: pointer
+
+    @media (min-width: 640px)
+      border-bottom: 0
+      border-right: 1px solid rgba(255, 255, 255, 0.05)
+      float: left
+      position: relative
+
+      & > ol
+        position: absolute
+        left: 0
+
+    ol
+      transition: opacity 400ms ease-out
+      opacity: 0
+
+      &.is-active
+        opacity: 1
+
+    ol ol
+      border-top: 1px solid rgba(255, 255, 255, 0.05)
+      max-height: 0
+      overflow: hidden
+      transition: max-height 400ms ease-out
+
+      &.is-active
+        max-height: 600px
+
+      span
+        padding-left: 2em
+        text-transform: none
+
+.sg-header-link
+  padding-right: 25px
+  position: relative
+  line-height: 1.2em
+  white-space: nowrap
+
+  &.is-active
+    color: white
+    background: rgba(255, 255, 255, 0.05)
+
+  &.sg-acc-handle
+
+    &:after
+      content: '+'
+      position: absolute
+      right: 10px
+      top: 50%
+      margin-top: -.6em
+
+    &.is-active
+      &:after
+        content: '–'
+
+  &.sg-icon:after
+    content: ""
+
+  li &
+    text-indent: 7px
+
+    @media (min-width: 640px)
+      text-indent: 0
+
+  li li &
+    text-indent: 14px
+
+    @media (min-width: 640px)
+      text-indent: 0
+
+
+.sg-icon
+  width: auto
+  font-size: 1rem
+  padding: 0.5rem 1rem
+
+.sg-acc-panel
+  overflow: hidden
+  max-height: 0
+  min-width: 10em
+  transition: max-height 0.1s ease-out
+
+  li
+    background: #222222
+
+  &.is-active
+    max-height: 200em
+    overflow: visible
+
+
+  &.sg-right
+    position: absolute
+    left: auto
+    right: 0
+
+  &.sg-left
+    position: absolute
+    left: auto
+
+.sg-content
+  margin-top: 38px

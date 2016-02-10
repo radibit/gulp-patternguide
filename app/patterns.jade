@@ -1,0 +1,39 @@
+doctype
+html(lang="en"
+    xmlns="http://www.w3.org/1999/xhtml",
+    itemscope="itemscope",
+    itemtype="http://schema.org/Product")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+        meta(name="viewport", content="width=device-width,initial-scale=1")
+        meta(http-equiv="Content-type", content="text/html;charset=UTF-8")
+        title= projectTitle
+        link(href="css/patterns.css", rel="stylesheet")
+        link(href=overrideCssFile, rel="stylesheet")
+
+        | <!--[if lt IE 9]>
+        | <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        | <![endif]-->
+
+    body(ng-app="styleguide", ng-controller="patternsController", class="sg-iframe")
+
+        ng-include(src="'patterns/index.html'",
+                   ng-if="isIndex")
+
+        .sg-content-container(ng-repeat="pattern in patternPathValues",
+                              ng-if="!isIndex && pattern.level > 1",
+                              class="is-pattern-{{pattern.identifier}}",
+                              ng-class="{'is-single': patternPathValues.length == 1}")
+
+            .sg-content-headline(ng-if="patternPathValues.length > 1")
+                a(href="#/{{pattern.parent}}") {{pattern.title}}
+                span
+                    a(href="patterns{{pattern.path}}" target="_blank") Remove Frame
+                    | &nbsp; | &nbsp;
+                    a(href="patterns{{pattern.source}}" target="_blank") Show Source
+
+
+            ng-include(src="'patterns'+pattern.path", class="sg-content")
+
+    include ./views/includes/_foot

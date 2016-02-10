@@ -1,0 +1,30 @@
+doctype
+html(lang="en",
+    xmlns="http://www.w3.org/1999/xhtml",
+    itemscope="itemscope",
+    itemtype="http://schema.org/Product")
+
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+        meta(name="viewport", content="width=device-width,initial-scale=1")
+
+        title= projectTitle
+        meta(http-equiv="Content-type", content="text/html;charset=UTF-8")
+
+        link(href="./css/index.css", rel="stylesheet")
+
+        | <!--[if lt IE 9]>
+        | <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        | <![endif]-->
+
+    body(ng-app="styleguide" class="sg-app")
+
+        ng-include(src="'./templates/navBar.html'",
+                   ng-controller="navBarController")
+        iframe-content(iframe-source="./patterns.html")
+
+        include ./views/includes/_foot
+
+
+

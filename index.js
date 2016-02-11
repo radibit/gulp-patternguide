@@ -34,9 +34,7 @@ var
       port: 9000,
       static: {},
       https: {
-        port: 9090,
-        key: 'ssl/localhost.key',
-        cert: 'ssl/localhost.pem'
+        port: 9090
       }
     }
   },

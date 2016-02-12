@@ -1,16 +1,15 @@
 doctype
 html(lang="en"
     xmlns="http://www.w3.org/1999/xhtml",
-    itemscope="itemscope",
-    itemtype="http://schema.org/Product")
+    itemscope="itemscope")
     head
         meta(charset="utf-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
         meta(name="viewport", content="width=device-width,initial-scale=1")
         meta(http-equiv="Content-type", content="text/html;charset=UTF-8")
         title= projectTitle
-        link(href="css/patterns.css", rel="stylesheet")
-        link(href=overrideCssFile, rel="stylesheet")
+        each val in cssFiles
+            link(href=val, rel="stylesheet")
 
         | <!--[if lt IE 9]>
         | <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

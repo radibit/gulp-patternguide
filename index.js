@@ -7,12 +7,12 @@ var
   styles = require('./lib/styles'),
   viewerApp = require('./lib/viewerApp'),
   path = require('path'),
-  extend = require('node.extend');
-
+  extend = require('node.extend'),
+  browserSync = require('browser-sync');
 
 var
-  options,
-  defaultOptions = {
+  config,
+  defaultConfig = {
     rootPath: process.cwd(),
 
     patterns: {
@@ -23,47 +23,44 @@ var
     },
 
     viewerApp: {
-      static: 'dist/styleguide',
-      overrideCssFile: 'css/override.css'
-    },
-    livereload: {
-      port: 35729,
-      enable: true
+      dest: 'dist/styleguide',
+      cssFiles: []
     },
     server: {
+      name: process.env.npm_package_name,
       port: 9000,
-      static: {},
+      baseDir: [],
       https: {
-        port: 9090
+        key: __dirname + "/ssl/localhost.key",
+        cert: __dirname + "/ssl/localhost.cert"
       }
     }
   },
 
-  mergeOptions = function(specificOptions) {
+  extendConfig = function (_config) {
 
-    options = extend(true, defaultOptions, specificOptions);
+    config = extend(true, defaultConfig, _config);
 
-    options.patterns.views = path.join(options.rootPath, options.patterns.sourcePath);
+    config.patterns.views = path.join(config.rootPath, config.patterns.sourcePath);
 
-    options.server.static['/styleguide'] = options.viewerApp.static;
-    options.server.templatingExts = [
-      options.patterns.sourceExt,
-      options.patterns.targetExt
-    ];
-
-
+    config.server.baseDir.push(path.resolve(config.viewerApp.dest, '..'));
   },
 
-  styleguide = function(specificOptions) {
+  init = function (_config, bs, cb) {
 
-    mergeOptions(specificOptions);
+    extendConfig(_config);
 
-    templating.init(options.patterns);
-    patternCollector.init(options.patterns);
-    styles.init(options.patterns, options.viewerApp);
-    viewerApp.init(options);
-    server.init(options.server);
-};
+    templating.init(config.patterns);
+    patternCollector.init(config.patterns);
+    styles.init(config.patterns, config.viewerApp);
+    viewerApp.init(config);
 
+    if (!!bs) {
+      server.init(config.server, bs, cb || function(){});
+    }
+    else if (typeof cb === 'function') {
+      cb();
+    }
+  };
 
-module.exports = styleguide;
+module.exports = init;

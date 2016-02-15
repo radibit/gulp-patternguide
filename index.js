@@ -19,13 +19,15 @@ var
       sourcePath: 'templates',
       sourceExt: 'twig',
       targetExt: 'html',
-      dataExt: 'json'
+      dataExt: 'json',
+      functionsFile: ''
     },
 
     viewerApp: {
       dest: 'dist/styleguide',
       cssFiles: []
     },
+
     server: {
       name: process.env.npm_package_name,
       port: 9000,

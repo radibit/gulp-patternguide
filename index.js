@@ -20,7 +20,7 @@ var
       sourceExt: 'twig',
       targetExt: 'html',
       dataExt: 'json',
-      functionsFile: ''
+      mockFunctionsFile: ''
     },
 
     viewerApp: {

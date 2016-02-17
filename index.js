@@ -42,9 +42,7 @@ var
   extendConfig = function (_config) {
 
     config = extend(true, defaultConfig, _config);
-
     config.patterns.views = path.join(config.rootPath, config.patterns.sourcePath);
-
     config.server.baseDir.push(path.resolve(config.viewerApp.dest, '..'));
   },
 

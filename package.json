@@ -36,6 +36,7 @@
     "node.extend": "~1.1.5",
     "promise": "~7.1.1",
     "swig": "~1.4.2",
+    "sync-request": "^3.0.0",
     "vinyl-transform": "^1.0.0"
   },
   "devDependencies": {}

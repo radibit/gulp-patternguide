@@ -7,8 +7,7 @@ var
   styles = require('./lib/styles'),
   viewerApp = require('./lib/viewerApp'),
   path = require('path'),
-  extend = require('node.extend'),
-  browserSync = require('browser-sync');
+  extend = require('node.extend');
 
 var
   config,
@@ -54,7 +53,7 @@ var
     patternCollector.init(config.patterns);
     styles.init(config.patterns, config.viewerApp);
     viewerApp.init(config);
-
+    patternCollector.generatePatternIncludeMap();
     if (!!bs) {
       server.init(config.server, bs, cb || function(){});
     }

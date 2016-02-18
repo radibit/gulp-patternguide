@@ -21,6 +21,7 @@
   "dependencies": {
     "browserify": "9.0.3",
     "del": "~2.2.0",
+    "glob": "^7.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "~2.6.0",
@@ -37,6 +38,5 @@
     "swig": "~1.4.2",
     "vinyl-transform": "^1.0.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

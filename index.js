@@ -2,7 +2,7 @@
 
 var
   server = require('./lib/server'),
-  templating = require('./lib/templating'),
+  templateRender = require('./lib/templateRender'),
   patternCollector = require('./lib/patternCollector'),
   styles = require('./lib/styles'),
   viewerApp = require('./lib/viewerApp'),
@@ -19,7 +19,10 @@ var
       sourceExt: 'twig',
       targetExt: 'html',
       dataExt: 'json',
-      mockFunctionsFile: ''
+      mockFunctionsFile: '',
+      engine: {
+        name: 'swig'
+      }
     },
 
     viewerApp: {
@@ -49,7 +52,7 @@ var
 
     extendConfig(_config);
 
-    templating.init(config.patterns);
+    templateRender.init(config.patterns);
     patternCollector.init(config.patterns);
     styles.init(config.patterns, config.viewerApp);
     viewerApp.init(config);

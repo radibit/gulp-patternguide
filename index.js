@@ -58,7 +58,6 @@ var
     patternCollector.generatePatternIncludeMap();
 
     if (!!bs) {
-      console.log("bs done")
       server.init(config.server, bs, cb || function(){});
     }
     else {

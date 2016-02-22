@@ -51,17 +51,22 @@ var
   init = function (_config, bs, cb) {
 
     extendConfig(_config);
-
-    templateRender.init(config.patterns);
+    var renderEngine = templateRender.init(config.patterns);
     patternCollector.init(config.patterns);
     styles.init(config.patterns, config.viewerApp);
     viewerApp.init(config);
     patternCollector.generatePatternIncludeMap();
+
     if (!!bs) {
       server.init(config.server, bs, cb || function(){});
     }
-    else if (typeof cb === 'function') {
-      cb();
+    else {
+      if ('function' === typeof renderEngine.done) {
+        renderEngine.done();
+      }
+      if ('function' === typeof cb) {
+        cb();
+      }
     }
   };
 

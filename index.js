@@ -57,12 +57,17 @@ var
     styles.init(config.patterns, config.viewerApp);
     viewerApp.init(config);
     patternCollector.generatePatternIncludeMap();
+    console.log("are we in init?", bs, cb)
     if (!!bs) {
+      console.log("bs done")
       server.init(config.server, bs, cb || function(){});
     }
     else if (typeof cb === 'function') {
+      console.log("cb done")
       cb();
     }
+    // console.log("templateRender.renderEngine.done()");
+    // templateRender.renderEngine.done();
   };
 
 module.exports = init;

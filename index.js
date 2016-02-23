@@ -27,7 +27,8 @@ var
 
     viewerApp: {
       dest: 'dist/styleguide',
-      cssFiles: []
+      cssFiles: [],
+      jsFiles: []
     },
 
     server: {

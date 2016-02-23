@@ -36,3 +36,6 @@ html(lang="en"
             ng-include(src="'patterns'+pattern.path", class="sg-content")
 
     include ./views/includes/_foot
+
+    each val in jsFiles
+        script(type="text/javascript", src=val)

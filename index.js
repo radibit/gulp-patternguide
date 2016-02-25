@@ -52,12 +52,11 @@ var
   init = function (_config, bs, cb) {
 
     extendConfig(_config);
-    var renderEngine = templateRender.init(config.patterns);
     patternCollector.init(config.patterns);
     styles.init(config.patterns, config.viewerApp);
     viewerApp.init(config);
     patternCollector.generatePatternIncludeMap();
-
+    var renderEngine = templateRender.init(config.patterns);
     if (!!bs) {
       server.init(config.server, bs, cb || function(){});
     }

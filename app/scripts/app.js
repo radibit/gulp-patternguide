@@ -20,6 +20,13 @@
     'styleguide.directives'
   ];
 
+  try {
+    angular.module('frontend');
+    modules.push('frontend');
+  }
+  catch(e) {
+  }
+
   angular.module('styleguide', modules);
 
 })();

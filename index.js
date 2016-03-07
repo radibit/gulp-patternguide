@@ -60,18 +60,6 @@ var
     if (!!bs) {
       server.init(config.server, bs, cb || function(){});
     }
-    else {
-      //if ('function' === typeof renderEngine.done) {
-      //  renderEngine.done();
-      //}
-      //if ('function' === typeof cb) {
-      //  cb();
-      //}
-      //return function() {
-      //  renderEngine.done();
-      //  cb();
-      //}
-    }
   };
 
 module.exports = init;

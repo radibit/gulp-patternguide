@@ -51,13 +51,18 @@ var
 
   init = function (_config, bs, cb) {
 
+    var
+      renderEngine,
+      mode = !!bs ? 'dev' : 'build';
+
     extendConfig(_config);
     patternCollector.init(config.patterns);
     styles.init(config.patterns, config.viewerApp);
-    viewerApp.init(config);
-    patternCollector.generatePatternIncludeMap();
-    var renderEngine = templateRender.init(config.patterns);
-    if (!!bs) {
+    viewerApp.init(config, mode);
+
+    renderEngine = templateRender.init(config.patterns);
+
+    if (mode === 'dev') {
       server.init(config.server, bs, cb || function(){});
     }
     else {

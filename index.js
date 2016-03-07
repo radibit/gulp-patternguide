@@ -2,10 +2,10 @@
 
 var
   server = require('./lib/server'),
-  templateRender = require('./lib/templateRender'),
   patternCollector = require('./lib/patternCollector'),
   styles = require('./lib/styles'),
   viewerApp = require('./lib/viewerApp'),
+  templateRender = require('./lib/templateRender'),
   path = require('path'),
   extend = require('node.extend');
 
@@ -51,27 +51,26 @@ var
 
   init = function (_config, bs, cb) {
 
-    var
-      renderEngine,
-      mode = !!bs ? 'dev' : 'build';
-
     extendConfig(_config);
+    templateRender.init(config.patterns);
     patternCollector.init(config.patterns);
     styles.init(config.patterns, config.viewerApp);
-    viewerApp.init(config, mode);
+    viewerApp.init(config, cb);
 
-    renderEngine = templateRender.init(config.patterns);
-
-    if (mode === 'dev') {
+    if (!!bs) {
       server.init(config.server, bs, cb || function(){});
     }
     else {
-      if ('function' === typeof renderEngine.done) {
-        renderEngine.done();
-      }
-      if ('function' === typeof cb) {
-        cb();
-      }
+      //if ('function' === typeof renderEngine.done) {
+      //  renderEngine.done();
+      //}
+      //if ('function' === typeof cb) {
+      //  cb();
+      //}
+      //return function() {
+      //  renderEngine.done();
+      //  cb();
+      //}
     }
   };
 

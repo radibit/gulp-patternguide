@@ -52,7 +52,7 @@ var
   init = function (_config, bs, cb) {
 
     extendConfig(_config);
-    templateRender.init(config.patterns);
+    templateRender.init(config.patterns, !!bs);
     patternCollector.init(config.patterns);
     styles.init(config.patterns, config.viewerApp);
     viewerApp.init(config, cb);

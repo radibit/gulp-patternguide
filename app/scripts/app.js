@@ -25,6 +25,8 @@
     modules.push('frontend');
   }
   catch(e) {
+    console.info('no frontend module')
+    console.info(e)
   }
 
   angular.module('styleguide', modules);

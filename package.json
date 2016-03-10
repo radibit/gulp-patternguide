@@ -1,7 +1,7 @@
 {
   "name": "gulp-patternguide",
   "description": "Extend your gulp process and generate a living styleguide from your Jinja2 or Twig templates.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./index.js",
   "repository": {
     "type": "git",
@@ -39,6 +39,5 @@
     "swig": "~1.4.2",
     "sync-request": "^3.0.0",
     "vinyl-transform": "^1.0.0"
-  },
-  "devDependencies": {}
+  }
 }

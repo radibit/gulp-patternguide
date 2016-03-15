@@ -20,6 +20,7 @@ var
       targetExt: 'html',
       dataExt: 'json',
       mockFunctionsFile: '',
+      globalsDataFile: '',
       engine: {
         name: 'swig'
       }

@@ -24,7 +24,7 @@ html(lang="en"
                               class="is-pattern-{{pattern.identifier}}",
                               ng-class="{'is-single': (patternPathValues.length == 1), 'is-many': (patternPathValues.length > 1)}")
 
-            .sg-content-headline(ng-if="patternPathValues.length > 1")
+            .sg-content-headline(ng-if="patternPathValues.length > 1", ng-cloak)
                 a(href="#/{{pattern.parent}}") {{pattern.title}}
                 span
                     a(href="patterns.html#/{{pattern.parent}}" target="_blank") Remove Frame

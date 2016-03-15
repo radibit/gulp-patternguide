@@ -17,12 +17,13 @@ body
   .sg-content
     position relative
     display block
-    height 100%
 
-  &:not(.is-single)
+  &.is-many
     .sg-content
       padding-left 10px
       padding-right @padding-left
+      width 100%
+      margin 0!important
 
 .sg-content-headline
   color #7d7d7d
@@ -30,7 +31,9 @@ body
   font-size 1.2em
   line-height 27px
   height 27px
-  margin 1em 10px
+  padding 1em 10px
+  box-sizing content-box
+  margin-bottom 10px
   border-bottom 1px solid #7d7d7d
   overflow hidden
   span

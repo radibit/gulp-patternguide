@@ -17,21 +17,19 @@ html(lang="en"
 
     body(ng-app="styleguide", ng-controller="patternsController", class="sg-iframe")
 
-        ng-include(src="'patterns/index.html'",
-                   ng-if="isIndex")
+        ng-include(src="'patterns/index.html'", ng-if="isIndex")
 
         .sg-content-container(ng-repeat="pattern in patternPathValues",
                               ng-if="!isIndex && pattern.level > 1",
                               class="is-pattern-{{pattern.identifier}}",
-                              ng-class="{'is-single': patternPathValues.length == 1}")
+                              ng-class="{'is-single': (patternPathValues.length == 1), 'is-many': (patternPathValues.length > 1)}")
 
             .sg-content-headline(ng-if="patternPathValues.length > 1")
                 a(href="#/{{pattern.parent}}") {{pattern.title}}
                 span
-                    a(href="patterns{{pattern.path}}" target="_blank") Remove Frame
-                    | &nbsp; | &nbsp;
-                    a(href="patterns{{pattern.source}}" target="_blank") Show Source
-
+                    a(href="patterns.html#/{{pattern.parent}}" target="_blank") Remove Frame
+                    //| &nbsp; | &nbsp;
+                    //a(href="patterns{{pattern.source}}" target="_blank") Show Source
 
             ng-include(src="'patterns'+pattern.path", class="sg-content")
 

@@ -2,10 +2,12 @@
   "name": "gulp-patternguide",
   "description": "Extend your gulp process and generate a living styleguide from your Jinja2 or Twig templates.",
   "version": "0.1.5",
+  "license" : "MIT",
+  "url": "https://github.com/project-a/gulp-patternguide",
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com:project-a/treatntravel-styleguide.git"
+    "url": "git://github.com:project-a/gulp-patternguide.git"
   },
   "author": {
     "email": "stefan.lehmann@project-a.com",

@@ -17,6 +17,7 @@ var
     patterns: {
       sourcePath: 'templates',
       sourceExt: 'twig',
+      sourceOptions: {},
       targetExt: 'html',
       dataExt: 'json',
       mockFunctionsFile: '',

@@ -5,10 +5,7 @@
   "license" : "MIT",
   "url": "https://github.com/project-a/gulp-patternguide",
   "main": "./index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com:project-a/gulp-patternguide.git"
-  },
+  "repository": "http://project-a/gulp-patternguide.git",
   "author": {
     "email": "stefan.lehmann@project-a.com",
     "name": "Project-A (Stefan Lehmann)"

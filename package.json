@@ -7,11 +7,14 @@
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com:project-a/gulp-patternguide.git"
+    "url": "https://github.com/project-a/gulp-patternguide"
   },
   "author": {
     "email": "stefan.lehmann@project-a.com",
-    "name": "Project-A (Stefan Lehmann)"
+    "name": "Project-A Ventures (Stefan Lehmann)"
+  },
+  "bugs": {
+    "url": "https://github.com/project-a/gulp-patternguide/issues"
   },
   "keywords": [
     "Pattern Lab",
